@@ -1,0 +1,550 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FB74F0241E66306F00BE039A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB74F0231E66306F00BE039A /* AppDelegate.swift */; };
+		FB74F0261E66306F00BE039A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB74F0251E66306F00BE039A /* ViewController.swift */; };
+		FB74F0291E66306F00BE039A /* bioLAM.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FB74F0271E66306F00BE039A /* bioLAM.xcdatamodeld */; };
+		FB74F02B1E66306F00BE039A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB74F02A1E66306F00BE039A /* Assets.xcassets */; };
+		FB74F02E1E66306F00BE039A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB74F02C1E66306F00BE039A /* Main.storyboard */; };
+		FB74F0391E66306F00BE039A /* bioLAMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB74F0381E66306F00BE039A /* bioLAMTests.swift */; };
+		FB74F0441E66306F00BE039A /* bioLAMUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB74F0431E66306F00BE039A /* bioLAMUITests.swift */; };
+		FB74F0541E73678D00BE039A /* biolam-base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB74F0521E73678D00BE039A /* biolam-base.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FB74F0351E66306F00BE039A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FB74F0181E66306F00BE039A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FB74F01F1E66306F00BE039A;
+			remoteInfo = bioLAM;
+		};
+		FB74F0401E66306F00BE039A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FB74F0181E66306F00BE039A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FB74F01F1E66306F00BE039A;
+			remoteInfo = bioLAM;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FB74F0201E66306F00BE039A /* bioLAM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bioLAM.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB74F0231E66306F00BE039A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FB74F0251E66306F00BE039A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FB74F0281E66306F00BE039A /* bioLAM.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = bioLAM.xcdatamodel; sourceTree = "<group>"; };
+		FB74F02A1E66306F00BE039A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FB74F02D1E66306F00BE039A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FB74F02F1E66306F00BE039A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB74F0341E66306F00BE039A /* bioLAMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bioLAMTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB74F0381E66306F00BE039A /* bioLAMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bioLAMTests.swift; sourceTree = "<group>"; };
+		FB74F03A1E66306F00BE039A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB74F03F1E66306F00BE039A /* bioLAMUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bioLAMUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB74F0431E66306F00BE039A /* bioLAMUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bioLAMUITests.swift; sourceTree = "<group>"; };
+		FB74F0451E66306F00BE039A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB74F0511E73678D00BE039A /* bioLAM-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "bioLAM-Bridging-Header.h"; sourceTree = "<group>"; };
+		FB74F0521E73678D00BE039A /* biolam-base.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "biolam-base.cpp"; sourceTree = "<group>"; };
+		FB74F0531E73678D00BE039A /* biolam-base.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = "biolam-base.hpp"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FB74F01D1E66306F00BE039A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB74F0311E66306F00BE039A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB74F03C1E66306F00BE039A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FB74F0171E66306F00BE039A = {
+			isa = PBXGroup;
+			children = (
+				FB74F0221E66306F00BE039A /* bioLAM */,
+				FB74F0371E66306F00BE039A /* bioLAMTests */,
+				FB74F0421E66306F00BE039A /* bioLAMUITests */,
+				FB74F0211E66306F00BE039A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FB74F0211E66306F00BE039A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FB74F0201E66306F00BE039A /* bioLAM.app */,
+				FB74F0341E66306F00BE039A /* bioLAMTests.xctest */,
+				FB74F03F1E66306F00BE039A /* bioLAMUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FB74F0221E66306F00BE039A /* bioLAM */ = {
+			isa = PBXGroup;
+			children = (
+				FB74F0231E66306F00BE039A /* AppDelegate.swift */,
+				FB74F0251E66306F00BE039A /* ViewController.swift */,
+				FB74F02A1E66306F00BE039A /* Assets.xcassets */,
+				FB74F02C1E66306F00BE039A /* Main.storyboard */,
+				FB74F02F1E66306F00BE039A /* Info.plist */,
+				FB74F0271E66306F00BE039A /* bioLAM.xcdatamodeld */,
+				FB74F0521E73678D00BE039A /* biolam-base.cpp */,
+				FB74F0531E73678D00BE039A /* biolam-base.hpp */,
+				FB74F0511E73678D00BE039A /* bioLAM-Bridging-Header.h */,
+			);
+			path = bioLAM;
+			sourceTree = "<group>";
+		};
+		FB74F0371E66306F00BE039A /* bioLAMTests */ = {
+			isa = PBXGroup;
+			children = (
+				FB74F0381E66306F00BE039A /* bioLAMTests.swift */,
+				FB74F03A1E66306F00BE039A /* Info.plist */,
+			);
+			path = bioLAMTests;
+			sourceTree = "<group>";
+		};
+		FB74F0421E66306F00BE039A /* bioLAMUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FB74F0431E66306F00BE039A /* bioLAMUITests.swift */,
+				FB74F0451E66306F00BE039A /* Info.plist */,
+			);
+			path = bioLAMUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FB74F01F1E66306F00BE039A /* bioLAM */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB74F0481E66306F00BE039A /* Build configuration list for PBXNativeTarget "bioLAM" */;
+			buildPhases = (
+				FB74F01C1E66306F00BE039A /* Sources */,
+				FB74F01D1E66306F00BE039A /* Frameworks */,
+				FB74F01E1E66306F00BE039A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = bioLAM;
+			productName = bioLAM;
+			productReference = FB74F0201E66306F00BE039A /* bioLAM.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FB74F0331E66306F00BE039A /* bioLAMTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB74F04B1E66306F00BE039A /* Build configuration list for PBXNativeTarget "bioLAMTests" */;
+			buildPhases = (
+				FB74F0301E66306F00BE039A /* Sources */,
+				FB74F0311E66306F00BE039A /* Frameworks */,
+				FB74F0321E66306F00BE039A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FB74F0361E66306F00BE039A /* PBXTargetDependency */,
+			);
+			name = bioLAMTests;
+			productName = bioLAMTests;
+			productReference = FB74F0341E66306F00BE039A /* bioLAMTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FB74F03E1E66306F00BE039A /* bioLAMUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB74F04E1E66306F00BE039A /* Build configuration list for PBXNativeTarget "bioLAMUITests" */;
+			buildPhases = (
+				FB74F03B1E66306F00BE039A /* Sources */,
+				FB74F03C1E66306F00BE039A /* Frameworks */,
+				FB74F03D1E66306F00BE039A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FB74F0411E66306F00BE039A /* PBXTargetDependency */,
+			);
+			name = bioLAMUITests;
+			productName = bioLAMUITests;
+			productReference = FB74F03F1E66306F00BE039A /* bioLAMUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FB74F0181E66306F00BE039A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Mazumder Lab";
+				TargetAttributes = {
+					FB74F01F1E66306F00BE039A = {
+						CreatedOnToolsVersion = 8.2.1;
+						LastSwiftMigration = 0820;
+						ProvisioningStyle = Automatic;
+					};
+					FB74F0331E66306F00BE039A = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = FB74F01F1E66306F00BE039A;
+					};
+					FB74F03E1E66306F00BE039A = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = FB74F01F1E66306F00BE039A;
+					};
+				};
+			};
+			buildConfigurationList = FB74F01B1E66306F00BE039A /* Build configuration list for PBXProject "bioLAM" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FB74F0171E66306F00BE039A;
+			productRefGroup = FB74F0211E66306F00BE039A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FB74F01F1E66306F00BE039A /* bioLAM */,
+				FB74F0331E66306F00BE039A /* bioLAMTests */,
+				FB74F03E1E66306F00BE039A /* bioLAMUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FB74F01E1E66306F00BE039A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB74F02B1E66306F00BE039A /* Assets.xcassets in Resources */,
+				FB74F02E1E66306F00BE039A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB74F0321E66306F00BE039A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB74F03D1E66306F00BE039A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FB74F01C1E66306F00BE039A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB74F0541E73678D00BE039A /* biolam-base.cpp in Sources */,
+				FB74F0261E66306F00BE039A /* ViewController.swift in Sources */,
+				FB74F0291E66306F00BE039A /* bioLAM.xcdatamodeld in Sources */,
+				FB74F0241E66306F00BE039A /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB74F0301E66306F00BE039A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB74F0391E66306F00BE039A /* bioLAMTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB74F03B1E66306F00BE039A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB74F0441E66306F00BE039A /* bioLAMUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FB74F0361E66306F00BE039A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FB74F01F1E66306F00BE039A /* bioLAM */;
+			targetProxy = FB74F0351E66306F00BE039A /* PBXContainerItemProxy */;
+		};
+		FB74F0411E66306F00BE039A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FB74F01F1E66306F00BE039A /* bioLAM */;
+			targetProxy = FB74F0401E66306F00BE039A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FB74F02C1E66306F00BE039A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FB74F02D1E66306F00BE039A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FB74F0461E66306F00BE039A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FB74F0471E66306F00BE039A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+			};
+			name = Release;
+		};
+		FB74F0491E66306F00BE039A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = bioLAM/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.isasecret.jonnyslab.bioLAM;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "bioLAM/bioLAM-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		FB74F04A1E66306F00BE039A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = bioLAM/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.isasecret.jonnyslab.bioLAM;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "bioLAM/bioLAM-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		FB74F04C1E66306F00BE039A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = bioLAMTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.isasecret.jonnyslab.bioLAMTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/bioLAM.app/Contents/MacOS/bioLAM";
+			};
+			name = Debug;
+		};
+		FB74F04D1E66306F00BE039A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = bioLAMTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.isasecret.jonnyslab.bioLAMTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/bioLAM.app/Contents/MacOS/bioLAM";
+			};
+			name = Release;
+		};
+		FB74F04F1E66306F00BE039A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = bioLAMUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.isasecret.jonnyslab.bioLAMUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = bioLAM;
+			};
+			name = Debug;
+		};
+		FB74F0501E66306F00BE039A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = bioLAMUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.isasecret.jonnyslab.bioLAMUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = bioLAM;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FB74F01B1E66306F00BE039A /* Build configuration list for PBXProject "bioLAM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB74F0461E66306F00BE039A /* Debug */,
+				FB74F0471E66306F00BE039A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB74F0481E66306F00BE039A /* Build configuration list for PBXNativeTarget "bioLAM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB74F0491E66306F00BE039A /* Debug */,
+				FB74F04A1E66306F00BE039A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		FB74F04B1E66306F00BE039A /* Build configuration list for PBXNativeTarget "bioLAMTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB74F04C1E66306F00BE039A /* Debug */,
+				FB74F04D1E66306F00BE039A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		FB74F04E1E66306F00BE039A /* Build configuration list for PBXNativeTarget "bioLAMUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB74F04F1E66306F00BE039A /* Debug */,
+				FB74F0501E66306F00BE039A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FB74F0271E66306F00BE039A /* bioLAM.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FB74F0281E66306F00BE039A /* bioLAM.xcdatamodel */,
+			);
+			currentVersion = FB74F0281E66306F00BE039A /* bioLAM.xcdatamodel */;
+			path = bioLAM.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = FB74F0181E66306F00BE039A /* Project object */;
+}
