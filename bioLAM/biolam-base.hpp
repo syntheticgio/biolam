@@ -17,7 +17,7 @@ class AnnotationIndexer {
 
 public:
     
-    AnnotationIndexer() {}
+    AnnotationIndexer() : ref_(-1), pos_(-1), verbose_(true) {}
     AnnotationIndexer(std::string annotation_file, int ref, int pos, bool verbose = false);
     ~AnnotationIndexer() {};
     
