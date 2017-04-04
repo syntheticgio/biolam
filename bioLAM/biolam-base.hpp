@@ -18,8 +18,13 @@ class AnnotationIndexer {
 public:
     
     AnnotationIndexer() {}
-    AnnotationIndexer(std::string annotation_file, int ref, int pos);
+    AnnotationIndexer(std::string annotation_file, int ref, int pos, bool verbose = false);
     ~AnnotationIndexer() {};
+    
+    struct StartEndPositions {
+        int64_t start_position;
+        int64_t end_position;
+    };
     
     
     
@@ -27,6 +32,8 @@ private:
     std::string annotation_file_;
     int pos_;
     int ref_;
+    
+    bool verbose_;
     
 };
 
