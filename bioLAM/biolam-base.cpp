@@ -29,6 +29,7 @@ AnnotationIndexer::AnnotationIndexer(std::string annotation_file, int ref, int p
     std::ifstream _annotation;
     _annotation.open(annotation_file_);
     std::map <std::string, int64_t> _reference_ids;
+    std::map <std::string, int64_t> _reference_ids_end;
     
     // Assume header, remove and save
     std::getline(_annotation, header);
@@ -44,6 +45,8 @@ AnnotationIndexer::AnnotationIndexer(std::string annotation_file, int ref, int p
     // The following while loop retrieves a list of all of the references
     // and puts them in _reference_ids
     auto line_beginning = _annotation.tellg();
+    std::string _prev_element;
+    auto _end_ref_pos = line_beginning;
     while ( std::getline(_annotation, row) ) {
         std::stringstream _rowElements(row);
         std::string _element;
@@ -55,14 +58,11 @@ AnnotationIndexer::AnnotationIndexer(std::string annotation_file, int ref, int p
                 if ( it == _reference_ids.end() ) {
                     // New element for this file
                     std::cout << "New element: " << _element << " at position: " << line_beginning << std::endl;
-                    
-                    
-                    //StartEndPositions _s;
-                    //_s.start_position = line_beginning;
-                    
-                    
+                    std::cout << "Previous element " << _prev_element << " ends at position: " << _end_ref_pos << std::endl;
                     _reference_ids[_element] = line_beginning;
+                    _reference_ids_end[_prev_element] = _end_ref_pos;
                     //TODO: Need to somehow get the end position in the file when a new reference is found
+                    _prev_element = _element;
                 }
                 // If already updated referenceIDs for this _element, ignore and move to next row
                 // Break out of loop and move to next row
@@ -70,14 +70,21 @@ AnnotationIndexer::AnnotationIndexer(std::string annotation_file, int ref, int p
             }
             i++;
         }
+        _end_ref_pos = line_beginning;
         line_beginning = _annotation.tellg();
     }
-    //std::map< foo, bar > testing = { /*...blah...*/ };
-    
     // Index annotation file here
     std::cout << "Index annotation file here." << std::endl;
-    std::ifstream is(annotation_file_);
-    //std::string ref_target;
+    //std::ifstream is(annotation_file_);
+
+    std::ofstream is("sample_output.csv");
+
+    for (auto& reference : _reference_ids) {
+    	is << reference.first << "," << reference.second << "," << _reference_ids_end[reference.first] << std::endl;
+    }
+
+    is.close();
+
     for (auto& reference : _reference_ids) {
         //ref_target = reference.first;
         //std::cout << kv.first << " has value " << kv.second << std::endl;
@@ -87,19 +94,19 @@ AnnotationIndexer::AnnotationIndexer(std::string annotation_file, int ref, int p
         std::ofstream op(_op);
         std::cout << "Created output file: " << _op << std::endl;
         
-        is.seekg(0, is.beg);
+        _annotation.seekg(0, _annotation.beg);
         std::string line;
         
-        auto p1 = is.tellg();
+        auto p1 = _annotation.tellg();
         std::cout << "before header: " << p1 << std::endl;
         
         // Get header
-        getline(is, line);
-        auto p2 = is.tellg();
+        getline(_annotation, line);
+        auto p2 = _annotation.tellg();
         std::cout << "after header: " << p2 << std::endl;
         
         std::cout << "l: " << line << std::endl;
-        long long int position = is.tellg();
+        long long int position = _annotation.tellg();
         std::cout << "POS: " << position << std::endl;
         
         
@@ -143,12 +150,12 @@ AnnotationIndexer::AnnotationIndexer(std::string annotation_file, int ref, int p
 //        position = is.tellg();
 //    }
     //is.seekg(0, is.beg);
-    is.clear();
-    is.seekg(25, std::ios::beg);
+    _annotation.clear();
+    _annotation.seekg(25, std::ios::beg);
     std::string l;
-    getline(is, l);
+    getline(_annotation, l);
     std::cout << "line fetch: " << l << std::endl;
     
-    is.close();
+    _annotation.close();
     //op.close();
 }
