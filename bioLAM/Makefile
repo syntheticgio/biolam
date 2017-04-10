@@ -52,7 +52,7 @@ osx: compile
 
 # Support functions
 compile: main.o biolam-base.o 
-	$(CC) $(CFLAGS) -o ./$(TARGET) main.o biolam-base.o $(CXXFLAGS)
+	$(CC) $(CFLAGS) -o $(TARGET) main.o biolam-base.o $(CXXFLAGS)
 
 main.o: main.cpp 
 	$(CC) $(CFLAGS) -c main.cpp -o main.o $(CXXFLAGS)
@@ -65,4 +65,4 @@ biolam-base.o: biolam-base.cpp biolam-base.hpp
 
 # clean up the built files
 clean: 
-	$(RM) bin/$(TARGET) src/*.o src/*~
+	$(RM) $(TARGET) *.o *~

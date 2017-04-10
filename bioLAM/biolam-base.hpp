@@ -16,9 +16,16 @@
 class AnnotationIndexer {
 
 public:
+
+	enum AnnotationError {
+		kNoError = 0,
+		kOpenFile = 1
+
+	};
     
     AnnotationIndexer() : ref_(-1), pos_(-1), verbose_(true) {}
     AnnotationIndexer(std::string annotation_file, int ref, int pos, bool verbose = false);
+    AnnotationIndexer(std::string annotation_file, bool verbos = false);
     ~AnnotationIndexer() {};
     
     struct StartEndPositions {
@@ -27,8 +34,8 @@ public:
     };
     
     
-    
 private:
+    AnnotationError CreateIndex(std::string annotation_file, int ref, int pos, bool verbose = false);
     std::string annotation_file_;
     int pos_;
     int ref_;

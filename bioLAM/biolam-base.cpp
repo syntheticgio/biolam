@@ -14,13 +14,19 @@
 #include "biolam-base.hpp"
 
 AnnotationIndexer::AnnotationIndexer(std::string annotation_file, int ref, int pos, bool verbose) : annotation_file_(annotation_file), ref_(ref), pos_(pos), verbose_(verbose) {
+	bool _error = CreateIndex(annotation_file_, ref_, pos_, verbose_);
 
+}
+
+AnnotationIndexer::AnnotationIndexer(std::string annotation_file, bool verbose) : annotation_file_(annotation_file), ref_(-1), pos_(-1), verbose_(verbose) {
+
+}
+
+AnnotationIndexer::AnnotationError AnnotationIndexer::CreateIndex(std::string annotation_file, int ref, int pos, bool verbose) {
     if (verbose) {
         std::cout << "Called AnnotationIndexer" << std::endl;
-        std::cout << "First level of annotation beginning." << std::endl;
+        std::cout << "First level of indexing beginning." << std::endl;
     }
-    
-    std::cout << " In AnnotationIndexer " << std::endl;
     
     //
     // Need to first determine a list of references
@@ -35,7 +41,7 @@ AnnotationIndexer::AnnotationIndexer(std::string annotation_file, int ref, int p
     std::getline(_annotation, header);
     if (!header.size()) {
         std::cerr << "ERROR: No file size for " << annotation_file_ <<". Aborting." << std::endl;
-        return;
+        return true;
     }
     std::string row;
 
@@ -73,6 +79,18 @@ AnnotationIndexer::AnnotationIndexer(std::string annotation_file, int ref, int p
         _end_ref_pos = line_beginning;
         line_beginning = _annotation.tellg();
     }
+
+    // Need to find reference here and see if there is a match
+    // If so, just deal with that reference.  If ref is -1 then deal with all
+    // But ref should be string?
+    if (ref >= 0) {
+		auto it = _reference_ids.find(_element);
+		if ( it == _reference_ids.end() ) {
+
+		}
+    }
+
+
     // Index annotation file here
     std::cout << "Index annotation file here." << std::endl;
     //std::ifstream is(annotation_file_);
@@ -158,4 +176,6 @@ AnnotationIndexer::AnnotationIndexer(std::string annotation_file, int ref, int p
     
     _annotation.close();
     //op.close();
+
+    return false;
 }
