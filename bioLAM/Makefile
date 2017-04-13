@@ -2,7 +2,7 @@
 CC = g++
 
 # Compiler flags
-CFLAGS = -std=c++11 -Wno-reorder -O3
+CFLAGS = -std=c++11 -Wno-reorder
 CXXFLAGS = -DRELEASE
 
 # the build target executable
@@ -10,9 +10,13 @@ TARGET = biolam-linux
 
 all: compile
 
+# Release
+# 'make release'
+release: CFLAGS += -O3
+
 # Debug mode
 # 'make debug'
-debug: CFLAGS += -pthread -g -Wall
+debug: CFLAGS += -pthread -g -Wall -Og
 debug: CXXFLAGS = -DDEBUG
 debug: TARGET = biolam-linux-debug
 debug: compile
