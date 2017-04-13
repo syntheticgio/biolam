@@ -2,19 +2,13 @@
 CC = g++
 
 # Compiler flags
-CFLAGS = -std=c++11 -Wno-reorder
+CFLAGS = -std=c++11 -Wno-reorder -O3
+CXXFLAGS = -DRELEASE
 
 # the build target executable
-# TARGET = biomapper
+TARGET = biolam-linux
 
 all: compile
-
-# Set up release mode
-# call by 'make release' or just by 'make'
-release: CFLAGS += -O3
-release: CXXFLAGS = -DRELEASE
-release: TARGET = biolam-linux
-release: compile
 
 # Debug mode
 # 'make debug'
@@ -51,8 +45,8 @@ osx: TARGET = biolam-osx
 osx: compile
 
 # Support functions
-compile: main.o biolam-base.o 
-	$(CC) $(CFLAGS) -o $(TARGET) main.o biolam-base.o $(CXXFLAGS)
+compile: biolam-base.o main.o
+	$(CC) $(CFLAGS) -o $(TARGET) biolam-base.o main.o $(CXXFLAGS)
 
 main.o: main.cpp 
 	$(CC) $(CFLAGS) -c main.cpp -o main.o $(CXXFLAGS)

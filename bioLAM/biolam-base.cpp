@@ -10,20 +10,16 @@
 #include <fstream>
 #include <sstream>
 #include <map>
-
+#include <vector>
 #include "biolam-base.hpp"
 
-AnnotationIndexer::AnnotationIndexer(std::string annotation_file, int ref, int pos, bool verbose) : annotation_file_(annotation_file), ref_(ref), pos_(pos), verbose_(verbose) {
-	bool _error = CreateIndex(annotation_file_, ref_, pos_, verbose_);
-
+AnnotationIndexer::AnnotationIndexer(std::string annotation_file, int reference_column, int start_column, int end_column, bool verbose) : annotation_file_(annotation_file), reference_column_(reference_column), start_column_(start_column), end_column_(end_column), verbose_(verbose) {
+	AnnotationError _error = CreateIndex();
+	if (_error != kNoError) std::cerr << "Annotation Error : " << _error << std::endl;
 }
 
-AnnotationIndexer::AnnotationIndexer(std::string annotation_file, bool verbose) : annotation_file_(annotation_file), ref_(-1), pos_(-1), verbose_(verbose) {
-
-}
-
-AnnotationIndexer::AnnotationError AnnotationIndexer::CreateIndex(std::string annotation_file, int ref, int pos, bool verbose) {
-    if (verbose) {
+AnnotationIndexer::AnnotationError AnnotationIndexer::CreateIndex() {
+    if (verbose_) {
         std::cout << "Called AnnotationIndexer" << std::endl;
         std::cout << "First level of indexing beginning." << std::endl;
     }
@@ -37,11 +33,15 @@ AnnotationIndexer::AnnotationError AnnotationIndexer::CreateIndex(std::string an
     std::map <std::string, int64_t> _reference_ids;
     std::map <std::string, int64_t> _reference_ids_end;
     
+    // Name of output index file
+    // Index of seqID offsets
+    std::string index_level_1 = "indx_" + annotation_file_ + ".indx";
+
     // Assume header, remove and save
     std::getline(_annotation, header);
     if (!header.size()) {
         std::cerr << "ERROR: No file size for " << annotation_file_ <<". Aborting." << std::endl;
-        return true;
+        return kOpenFile;
     }
     std::string row;
 
@@ -58,7 +58,7 @@ AnnotationIndexer::AnnotationError AnnotationIndexer::CreateIndex(std::string an
         std::string _element;
         auto i = 0;
         while ( std::getline(_rowElements, _element, splitter) ) {
-            if ( i == ref ) {
+            if ( i == reference_column_ ) {
                 //std::map <std::string, bool>::iterator it;
                 auto it = _reference_ids.find(_element);
                 if ( it == _reference_ids.end() ) {
@@ -80,24 +80,94 @@ AnnotationIndexer::AnnotationError AnnotationIndexer::CreateIndex(std::string an
         line_beginning = _annotation.tellg();
     }
 
-    // Need to find reference here and see if there is a match
-    // If so, just deal with that reference.  If ref is -1 then deal with all
-    // But ref should be string?
-    if (ref >= 0) {
-		auto it = _reference_ids.find(_element);
-		if ( it == _reference_ids.end() ) {
+    // Iterate through references and determine the pos & offsets for each
+    // References should be in the order as the file
+    _annotation.seekg(0, _annotation.beg);
 
-		}
+    for (auto& reference : _reference_ids) {
+    	//std::string seqID = reference.first;
+        std::string _op = "./__" + reference.first + "__.dat";
+        std::ofstream op(_op);
+        std::cout << "Created output file: " << _op << std::endl;
+
+        _annotation.seekg(reference.second, _annotation.beg);
+
+        std::map <int64_t, std::vector <std::streampos> > position_map;
+        while ( std::getline(_annotation, row) ) {
+        	// Grab the start and end positions and add to vector in map
+
+            std::stringstream _rowElements(row);
+            std::string _element;
+            auto i = 0;
+            bool _start = false;
+            bool _end = false;
+            int64_t _s = -1;
+            int64_t _e = -1;
+
+            while ( std::getline(_rowElements, _element, splitter) ) {
+            	if (i == start_column_) {
+            		// Start position found
+            		_start = true;
+            		_s = stol(_element);
+            	} else if (i == end_column_) {
+            		// End position found
+            		_end = true;
+            		_e = stol(_element);
+            	}
+            	if (_start && _end) {
+            		for (;_s <= _e; _s++) {
+            			position_map[_s].push_back(line_beginning);
+            		}
+            	}
+            	i++;
+            }
+        	line_beginning = _annotation.tellg();
+        	if (line_beginning == _reference_ids_end[reference.first]) {
+        		break;
+        	}
+        }
+        // Write map into file
+        for (auto& pm : position_map) {
+        	op << pm.first << "," << pm.second.size();
+        	for (auto& pm_offset : pm.second) {
+        		op << "," << pm_offset;
+        	}
+        	op << std::endl;
+        }
+        op.close();
+
     }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     // Index annotation file here
-    std::cout << "Index annotation file here." << std::endl;
+    //std::cout << "Index annotation file here." << std::endl;
     //std::ifstream is(annotation_file_);
 
-    std::ofstream is("sample_output.csv");
+    /*
+     * Write each seqID's start and end position to CSV file
+     */
 
-    for (auto& reference : _reference_ids) {
+    //std::ofstream is("sample_output.csv");
+
+    //
+    // Each reference start and end positions
+    // Write into index file
+/*    for (auto& reference : _reference_ids) {
     	is << reference.first << "," << reference.second << "," << _reference_ids_end[reference.first] << std::endl;
     }
 
@@ -128,7 +198,7 @@ AnnotationIndexer::AnnotationError AnnotationIndexer::CreateIndex(std::string an
         std::cout << "POS: " << position << std::endl;
         
         
-    }
+    }*/
     // Assume we're interested in chr 1 for debug
     // Iterate through MAP here
     //std::string ref_target = "chr1";
@@ -168,14 +238,14 @@ AnnotationIndexer::AnnotationError AnnotationIndexer::CreateIndex(std::string an
 //        position = is.tellg();
 //    }
     //is.seekg(0, is.beg);
-    _annotation.clear();
-    _annotation.seekg(25, std::ios::beg);
-    std::string l;
-    getline(_annotation, l);
-    std::cout << "line fetch: " << l << std::endl;
+    //_annotation.clear();
+    //_annotation.seekg(25, std::ios::beg);
+    //std::string l;
+    //getline(_annotation, l);
+    //std::cout << "line fetch: " << l << std::endl;
     
     _annotation.close();
     //op.close();
 
-    return false;
+    return kNoError;
 }

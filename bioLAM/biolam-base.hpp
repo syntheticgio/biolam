@@ -23,9 +23,8 @@ public:
 
 	};
     
-    AnnotationIndexer() : ref_(-1), pos_(-1), verbose_(true) {}
-    AnnotationIndexer(std::string annotation_file, int ref, int pos, bool verbose = false);
-    AnnotationIndexer(std::string annotation_file, bool verbos = false);
+    AnnotationIndexer() : reference_column_(-1), start_column_(-1), end_column_(-1), verbose_(true) {}
+    AnnotationIndexer(std::string annotation_file, int reference_column, int start_column, int end_column, bool verbose = false);
     ~AnnotationIndexer() {};
     
     struct StartEndPositions {
@@ -35,10 +34,11 @@ public:
     
     
 private:
-    AnnotationError CreateIndex(std::string annotation_file, int ref, int pos, bool verbose = false);
+    AnnotationError CreateIndex();
     std::string annotation_file_;
-    int pos_;
-    int ref_;
+    int start_column_;
+    int end_column_;
+    int reference_column_;
     
     bool verbose_;
     
